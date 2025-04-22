@@ -1,5 +1,5 @@
-import LikeButton from './component/like-button';
-import Navbar from './component/navbar';
+import LikeButton from './components/like-button';
+import Navbar from './components/navbar';
 import './styles/globals.css';
 
 function Header({ title }) {

@@ -1,4 +1,4 @@
-import Navbar from "../component/navbar.js";
+import Navbar from "../components/navbar.js";
 import '../styles/globals.css';
 
 
