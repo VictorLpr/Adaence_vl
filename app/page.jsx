@@ -1,20 +1,17 @@
-import LikeButton from './like-button';
- 
+import LikeButton from './component/like-button';
+import Navbar from './component/navbar';
+import './styles/globals.css';
+
 function Header({ title }) {
   return <h1>{title ? title : 'Default title'}</h1>;
 }
- 
+
 export default function HomePage() {
-  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
  
   return (
     <div>
-      <Header title="Develop. Preview. Ship." />
-      <ul>
-        {names.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+      <Navbar />
+     
       <LikeButton />
     </div>
   );
