@@ -4,10 +4,10 @@ import Link from "next/link"
 
 export default function Navbar() {
     return (<nav className="flex">
-        <div>🍵Adaence</div>
+        <div className="title">🍵Ada<span>ence</span></div>
         <ul>
             <li>
-            <Link href="/">Accueil</Link>
+            <Link href="/">🏠Accueil</Link>
             </li>
             <li>
             <Link href="/visite">Je rends visite</Link>
@@ -20,7 +20,7 @@ export default function Navbar() {
             </li>
 
         </ul>
-        <div>
+        <div className="don">
             <Link href="/don">Faire un don</Link>
         </div>
 
