@@ -1,12 +1,17 @@
 'use client'
 
 export default function Searchbar() {
+    const options = ["Un repas", "Un café/thé", "Une promenade", "Une sortie culturelle", "Autre activité"]
+
     return (
-        <form action="" className="search-bar">
+        <form action="/visite" method="GET" className="search-bar">
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <label htmlFor="moment">Moment à partager</label>
                 <select name="moment" id="moment">
-                    <option value="repas">Un Repas</option>
+                    <option value="">Tous les moments possibles</option>
+                    {options.map(option => (
+                    <option value={option}>{option}</option>
+                    ))}
                 </select>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
