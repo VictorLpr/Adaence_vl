@@ -1,0 +1,22 @@
+.photo-grid {
+    column-count: 4;
+    column-gap: 16px;
+    padding: 20px;
+  }
+  
+  .photo-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
