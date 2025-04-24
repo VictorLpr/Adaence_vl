@@ -1,7 +1,11 @@
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 300px);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "img1 img2 img3 img4"
+    "img1 img6 img3 img8"
+    "img5 img6 img7 img8";
   gap: 20px;
   padding: 20px;
 }
@@ -17,10 +21,4 @@
   object-fit: cover;
   border-radius: 12px;
   display: block;
-}
-.photo-item.item0 {
-  grid-row: span 2;
-}
-.photo-item.item1 {
-  grid-row: span 1;
 }
