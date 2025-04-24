@@ -67,21 +67,24 @@ ul {
 .don {
   display: flex;
   background-color: var(--btn-secondary-bg);
-  border-radius: 20px;
-  width: 120px;
-  height: 30px;
+  border-radius: 30px;
+  padding: 15px;
   justify-content: center;
   align-items: center;
+  
 }
+
 .don:hover {
   background-color: var(--btn-secondary-hover-bg);
 }
+
+.don a {
+  color: var(--light-color);  
+  text-decoration: none;
+}
+
 .don:hover a {
   color: var(--light-color);
-}
-.don a {
-  color: var(--light-color);
-
 }
 
 .flex a {
@@ -144,7 +147,8 @@ h1 {
 }
 
 .intro ,
-.how {
+.how,
+.make-difference {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,7 +158,8 @@ h1 {
 }
 
 .intro p,
-.how>p {
+.how>p,
+.make-difference>p {
   color: var(--heading-color);
   width: 45%;
 }
@@ -178,6 +183,7 @@ h1 {
 }
 
 .card {
+  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,9 +194,32 @@ h1 {
   box-shadow: var(--shadow-lg);
 }
 
+.card h2 {
+  margin: 20px 0;
+}
+
+.links {
+  display: flex;
+  margin: 30px 0;
+}
+
+.links .don {
+  margin : 0 20px
+
+}
+
+.volunteer {
+  background-color: var(--btn-accent-bg);
+  padding: 15px;
+  border-radius: 30px;
+}
+
+.volunteer a {
+  text-decoration: none;
+  color: var(--light-color);
+}
 .footer {
   background-color: var(--dark-color);
-  color: var(--light-color);
   padding: 40px 20px 20px;
   width: 100%;
 }
@@ -222,24 +251,30 @@ h1 {
 
 .footer-text {
   font-size: 0.9em;
-  color: #ccc;
+  color: var(--light-color);
   line-height: 1.6;
   margin-bottom: 15px;
+
 }
 
 .footer-icons {
   display: flex;
 }
 
-.footer-icons a {
+.footer-icons svg {
   margin-right: 15px;
   font-size: 1.2em;
-  color: #ccc;
   transition: color 0.2s;
+  padding :2px;
+  background-color: #484848;
+  border-radius: 50%;
+  color: var(--light-color);
 }
 
-.footer-icons a:hover {
-  color: white;
+.footer a {
+  color: var(--light-color);
+  text-decoration: none;
+
 }
 
 .footer-list {
@@ -248,24 +283,22 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: start;
+  color: var(--light-color);
+
 }
 
 .footer-list li {
   margin-bottom: 10px;
-  padding: 0;
 }
 
-.footer a {
+.footer-list a {
   text-decoration: none;
   color: #ccc;
   font-size: 0.9em;
   transition: color 0.2s;
 }
 
-.footer a:hover {
-  color: white;
-  text-decoration: underline;
-}
+
 
 .footer-bottom {
   text-align: center;

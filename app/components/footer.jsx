@@ -17,10 +17,10 @@ export default function Footer() {
                         en leur offrant des moments de partage, d'écoute et de présence.
                     </p>
                     <div className="footer-icons">
-                        <a href="#"><Facebook size={20} /></a>
-                        <a href="#"><Instagram size={20} /></a>
-                        <a href="#"><Linkedin size={20} /></a>
-                        <a href="#"><Twitch size={20} /></a>
+                        <Facebook size={20} />
+                        <Instagram size={20} />
+                        <Linkedin size={20} />
+                        <Twitch size={20} />
                     </div>
                 </div>
 
