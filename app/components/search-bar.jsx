@@ -1,4 +1,5 @@
 'use client'
+import '../styles/search-bar.css'
 
 export default function Searchbar() {
     const options = ["Un repas", "Un café/thé", "Une promenade", "Une sortie culturelle", "Autre activité"]
