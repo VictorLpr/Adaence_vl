@@ -66,14 +66,19 @@ ul {
 
 .don {
   display: flex;
-  background-color: var(--secondary-color);
+  background-color: var(--btn-secondary-bg);
   border-radius: 20px;
   width: 120px;
   height: 30px;
   justify-content: center;
   align-items: center;
 }
-
+.don:hover {
+  background-color: var(--btn-secondary-hover-bg);
+}
+.don:hover a {
+  color: var(--light-color);
+}
 .don a {
   color: var(--light-color);
 
@@ -158,6 +163,9 @@ h1 {
   background-color: var(--btn-primary-bg);
   padding: 15px;
   border-radius: 30px;
+}
+.visite:hover {
+  background-color: var(--btn-primary-hover-bg);
 }
 .visite a {
   color: var(--light-color);
