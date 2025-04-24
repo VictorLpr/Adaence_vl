@@ -124,7 +124,8 @@ header {
   display: flex;
   justify-content: space-around;
   width: 60%;
-  height: 80px;
+  align-items: center;
+  /* height: 80px; */
   padding: 10px;
   background-color: var(--primary-color);
   box-shadow: var(--shadow-xl);
@@ -296,7 +297,6 @@ h1 {
   text-decoration: none;
   color: #ccc;
   font-size: 0.9em;
-  transition: color 0.2s;
 }
 
 
@@ -306,4 +306,14 @@ h1 {
   font-size: 0.75em;
   color: #888;
   margin-top: 20px;
+}
+
+.header {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
