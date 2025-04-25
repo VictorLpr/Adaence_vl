@@ -3,7 +3,10 @@
 export default function UserCard (props) {
     return (
         <div className="user-card">
+            <div className="image-holder">
+
             <img src={props.imageUrl}></img>
+            </div>
             <p>{props.type}</p>
             <h3>{props.firstname}</h3>
             <p>{props.job} · {props.age} ans</p>
