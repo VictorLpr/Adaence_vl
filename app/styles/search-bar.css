@@ -52,3 +52,9 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .refresh {
+    color: #e74c3c;
+    text-decoration: underline;
+    cursor: pointer;
+  }
