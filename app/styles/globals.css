@@ -95,6 +95,10 @@ ul {
   align-items: center;
 }
 
+li a:hover {
+  color: var(--accent-color);
+}
+
 
 .main,
 main {
@@ -150,13 +154,20 @@ h1 {
 }
 
 .intro,
-.how,
-.make-difference {
+.how {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin: 30px 0;
+  width: 100%;
+}
+
+.make-difference {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 100%;
 }
 
@@ -316,6 +327,15 @@ h1 {
   margin-top: 20px;
 }
 
+.header {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
 .users {
   display: grid;
@@ -358,6 +378,7 @@ h3 {
   width: fit-content;
   border-radius: 30px;
   margin: 10px auto;
+  text-align: center;
 }
 
 .image-holder {
@@ -391,4 +412,15 @@ h3 {
 }
 
 .testimony {
-text-align: center;}
+text-align: center;
+
+}
+
+li .disabled {
+  pointer-events: none;
+  color: var(--accent-color);
+}
+
+.disabled {
+  
+}
