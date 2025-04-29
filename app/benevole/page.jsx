@@ -3,6 +3,8 @@ import Comment from '../components/comment';
 import VolunteerForm from '../components/volunteer-form';
 import WhyVolunteer from '../components/why-volunteer';
 import '../styles/globals.css';
+import Link from "next/link"
+
 
 
 export default function Benevole() {
@@ -32,6 +34,20 @@ export default function Benevole() {
 devenues des moments que j'attends avec impatience. J'apprends énormément de son expérience et de sa vision de la vie.`}
                 imageUrl="./images/diego-hernandez-MSepzbKFz10-unsplash.jpg"
             />
+        </section>
+        <section className="make-difference">
+            <h1>DES QUESTIONS ?</h1>
+            <p>Nous sommes là pour répondre à toutes vos interrogations concernant le bénévolat chez Adaence.
+            N'hésitez pas à nous contacter pour en savoir plus sur notre démarche.</p>
+            <div className="links">
+                <div className="visite">
+                    <Link href="#">Foire aux questions</Link>
+                </div>
+                <div className="don">
+                    <Link href="#">Contactez-nous</Link>
+                </div>
+
+            </div>
         </section>
     </main>)
 }
