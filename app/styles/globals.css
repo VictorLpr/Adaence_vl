@@ -71,7 +71,7 @@ ul {
   padding: 15px;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .don:hover {
@@ -79,7 +79,7 @@ ul {
 }
 
 .don a {
-  color: var(--light-color);  
+  color: var(--light-color);
   text-decoration: none;
 }
 
@@ -123,17 +123,20 @@ header {
   justify-content: space-around;
   width: 60%;
   align-items: center;
-  /* height: 80px; */
   padding: 10px;
   background-color: var(--primary-color);
   box-shadow: var(--shadow-xl);
   align-items: end;
   border-radius: 8px;
 }
+.volunteer-form h2 {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+}
 
 .presentation {
   position: absolute;
-  top: 35%;
+  top: 130px;
   width: 45%;
   text-align: center;
   color: var(--light-color);
@@ -145,7 +148,7 @@ h1 {
   font-size: 2rem;
 }
 
-.intro ,
+.intro,
 .how,
 .make-difference {
   display: flex;
@@ -168,9 +171,11 @@ h1 {
   padding: 15px;
   border-radius: 30px;
 }
+
 .visite:hover {
   background-color: var(--btn-primary-hover-bg);
 }
+
 .visite a {
   color: var(--light-color);
   text-decoration: none;
@@ -204,8 +209,7 @@ h1 {
 }
 
 .links .don {
-  margin : 0 20px
-
+  margin: 0 20px
 }
 
 .volunteer {
@@ -218,6 +222,7 @@ h1 {
   text-decoration: none;
   color: var(--light-color);
 }
+
 .footer {
   background-color: var(--dark-color);
   padding: 40px 20px 20px;
@@ -265,7 +270,7 @@ h1 {
   margin-right: 15px;
   font-size: 1.2em;
   transition: color 0.2s;
-  padding :2px;
+  padding: 2px;
   background-color: #484848;
   border-radius: 50%;
   color: var(--light-color);
@@ -318,21 +323,22 @@ h1 {
 
 .users {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   width: 100%;
   grid-gap: 30px;
+  padding: 20px;
   justify-content: center;
 }
 
 .user-card {
   display: flex;
   flex-direction: column;
-  justify-content: normal;
+  justify-content: space-between;
   border-radius: 8px;
   box-shadow: var(--shadow-md);
-  margin: 15px;
 
 }
+
 .user-card p,
 .user-card h3 {
   padding: 10px 20px;
@@ -342,21 +348,49 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px  8px  0 0;
+  border-radius: 8px 8px 0 0;
 }
 
 h3 {
   color: var(--accent-color);
 }
+
 .moment {
   color: var(--light-color);
   background-color: #333;
   padding: 15px;
   width: fit-content;
   border-radius: 30px;
-  margin :  10px auto;
+  margin: 10px auto;
 }
 
 .image-holder {
   height: 200px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0
+}
+
+.pagination button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
+
+.labeled {
+  display: flex;
+  flex-direction: column;
+}
+
