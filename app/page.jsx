@@ -9,11 +9,11 @@ export default function HomePage() {
   
 
   return (
-    <div className='main'>
+    <main>
       <Header />
       <Persons />
       <How />
       <MakeDifference />
-    </div>
+    </main>
   );
 }
