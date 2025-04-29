@@ -1,0 +1,83 @@
+.volunteer-form {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow-xl);
+    border-radius: 8px;
+}
+
+.volunteer-form p,
+.volunteer-form h2 {
+    text-align: center;
+}
+
+
+.volunteer-form>div {
+    margin: 20px;
+    width: 100%;
+
+}
+
+.name,
+.adress {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.name div,
+.adress div {
+    width: 50%;
+}
+
+select,
+input[type="text"],
+textarea {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+span {
+    color: red;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+input[type="submit"] {
+    background-color: #ffc412;
+    color: #fafafa;
+    border: none;
+    width: 30%;
+    padding: 0.75rem 0;
+    font-weight: 600;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #e74c3c;
+}
+
+.header-volunteer {
+    height: 1120px;
+}
+.header-volunteer .presentation {
+    width: 80%;
+}
