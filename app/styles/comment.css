@@ -1,15 +1,19 @@
 .comment-card {
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
     padding: 24px;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    max-width: 900px;
-    margin: 20px auto;
+    margin: 20px ;
     text-align: left;
   }
-  
+  .comment-avatar {
+      display: flex;
+      flex-direction: row;
+
+  }
   .comment-avatar img {
     width: 48px;
     height: 48px;
@@ -22,20 +26,17 @@
   
   .comment-name {
     font-weight: bold;
-    margin: 0;
     color: #333;
   }
   
   .comment-role {
     font-size: 0.9em;
     color: #666;
-    margin-top: 2px;
   }
   
   .comment-quote {
     font-style: italic;
-    color: #444;
+    color: #333;
     margin-top: 12px;
-    line-height: 1.5;
-    position: relative;
+    line-height: 1.5rem;
   }
