@@ -1,6 +1,9 @@
 'use client'
 
 export default function UserCard (props) {
+    const handleClick = () => {
+        console.log(`name : ${props.firstname} | Moment Favori : ${props.type}`)
+    }
     return (
         <div className="user-card">
             <div className="image-holder">
@@ -12,7 +15,7 @@ export default function UserCard (props) {
             <p>{props.job} · {props.age} ans</p>
             <p>{props.city}</p>
             <p>{props.description}</p>
-            <div className="moment">Programmer un moment</div>
+            <div className="moment" onClick={handleClick}>Programmer un moment</div>
         </div>
     );
 }
