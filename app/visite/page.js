@@ -31,7 +31,11 @@ export default function Visite() {
     }
 
     const handlePageChange = (newPage) => {
-            setPage(newPage);
+        setPage(newPage);
+        window.scrollTo({
+            top: 250,
+            behavior: 'smooth'
+        })
     };
 
 
@@ -49,23 +53,29 @@ export default function Visite() {
                     }}
                 />
             </div>
-                <Users users={pagedUsers} />
-                <div className="pagination">
-              
+            <Users users={pagedUsers} />
+            <div className="pagination">
+                <button onClick={() => handlePageChange(page - 1)} className={page === 1 ? "hide" : ""}>
+                    {"<< Précédent"}
+                </button>
 
-                    {pages.map((p) => {
-                        return (
-                            <button
-                                key={p}
-                                className={p === page ? 'active' : ''}
-                                onClick={() => handlePageChange(p)}
-                            >
-                                {p}
-                            </button>
-                        );
-                    })}
+                {pages.map((p) => {
+                    return (
+                        <button
+                            key={p}
+                            className={p === page ? 'active' : ''}
+                            onClick={() => handlePageChange(p)}
+                        >
+                            {p}
+                        </button>
+                    );
+                })}
 
-                </div>
+                <button onClick={() => handlePageChange(page + 1)} className={page === maxPage ? "hide" : ""}>
+                    {"Suivant >>"}
+                </button>
+
+            </div>
         </main>
     );
 }

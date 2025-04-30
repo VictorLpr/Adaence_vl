@@ -239,94 +239,6 @@ h1 {
   color: var(--light-color);
 }
 
-.footer {
-  background-color: var(--dark-color);
-  padding: 40px 20px 20px;
-  width: 100%;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  border-bottom: 1px solid #444;
-  padding-bottom: 30px;
-}
-
-@media (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.footer-column {
-  max-width: 350px;
-}
-
-.footer-title {
-  color: var(--secondary-color);
-  font-size: 1.1em;
-  margin-bottom: 15px;
-}
-
-.footer-text {
-  font-size: 0.9em;
-  color: var(--light-color);
-  line-height: 1.6;
-  margin-bottom: 15px;
-
-}
-
-.footer-icons {
-  display: flex;
-}
-
-.footer-icons svg {
-  margin-right: 15px;
-  font-size: 1.2em;
-  transition: color 0.2s;
-  padding: 2px;
-  background-color: #484848;
-  border-radius: 50%;
-  color: var(--light-color);
-}
-
-.footer a {
-  color: var(--light-color);
-  text-decoration: none;
-
-}
-
-.footer-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  color: var(--light-color);
-
-}
-
-.footer-list li {
-  margin-bottom: 10px;
-}
-
-.footer-list a {
-  text-decoration: none;
-  color: #ccc;
-  font-size: 0.9em;
-}
-
-
-
-.footer-bottom {
-  text-align: center;
-  font-size: 0.75em;
-  color: #888;
-  margin-top: 20px;
-}
-
 .header {
   position: relative;
   height: 150px;
@@ -379,6 +291,11 @@ h3 {
   border-radius: 30px;
   margin: 10px auto;
   text-align: center;
+  cursor: pointer;
+}
+
+.moment:hover {
+  background-color: var(--accent-color);
 }
 
 .image-holder {
@@ -395,13 +312,13 @@ h3 {
 .pagination button {
   padding: 0.4rem 0.8rem;
   border: none;
-  background-color: #eee;
   cursor: pointer;
+  color: var(--btn-secondary-bg);
   border-radius: 4px;
 }
 
 .pagination button.active {
-  background-color: #333;
+  background-color: var(--btn-secondary-bg);
   color: white;
   font-weight: bold;
 }
@@ -421,6 +338,7 @@ li .disabled {
   color: var(--accent-color);
 }
 
-.disabled {
-  
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
