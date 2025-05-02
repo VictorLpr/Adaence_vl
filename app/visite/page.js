@@ -4,11 +4,13 @@ import Searchbar from '../components/search-bar';
 import { useSearchParams } from 'next/navigation';
 import Users from '../components/users';
 import { users } from '../../public/data/users.js'
-import { useState } from 'react';
+import { useState, useRef, use } from 'react';
+import { Blocks } from 'lucide-react';
 
 export default function Visite() {
     const searchParams = useSearchParams();
     const usersPerPage = 8;
+    const usersRef = useRef()
 
     const initialFilters = {
         moment: searchParams.get('moment') || '',
@@ -32,10 +34,9 @@ export default function Visite() {
 
     const handlePageChange = (newPage) => {
         setPage(newPage);
-        window.scrollTo({
-            top: 250,
-            behavior: 'smooth'
-        })
+        usersRef.current?.scrollIntoView({ 
+            behavior: 'smooth', 
+        });
     };
 
 
@@ -53,7 +54,7 @@ export default function Visite() {
                     }}
                 />
             </div>
-            <Users users={pagedUsers} />
+            <Users ref={usersRef} users={pagedUsers} />
             <div className="pagination">
                 <button onClick={() => handlePageChange(page - 1)} className={page === 1 ? "hide" : ""}>
                     {"<< Précédent"}

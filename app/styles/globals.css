@@ -211,7 +211,7 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   background-color: var(--light-color);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-xl);
 }
 
 .card h2 {

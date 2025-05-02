@@ -1,15 +1,18 @@
 'use client'
 
+import { forwardRef } from "react"
 import UserCard from "./user-card"
 
-export default function Users({users}) {
+const Users = forwardRef(({ users }, ref) => {
 
     return (
-        <section className='users'>
+        <section ref={ref} className='users'>
             {users.map((user, index) => (
                 <UserCard key={index} {...user} />
 
             ))}
         </section>
     )
-}
+});
+
+export default Users;
