@@ -5,7 +5,7 @@ import Searchbar from './search-bar';
 export default function Header() {
     
     return (
-        <header>
+        <header className='header-home'>
             <div className='presentation'>
                 <h1>Rétablissons les liens</h1>
                 <p>Et si vous offriez un peu de votre temps à ceux qui en ont le plus besoin ? Prenez rendez-vous pour partager un moment avec une personne agée isolée</p>

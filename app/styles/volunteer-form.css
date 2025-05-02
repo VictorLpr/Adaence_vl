@@ -1,15 +1,20 @@
 .volunteer-form {
     position: absolute;
-    bottom: 40px;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 60%;
+    width: 90%;
     padding: 10px;
     background-color: var(--primary-color);
     box-shadow: var(--shadow-xl);
     border-radius: 8px;
+    @media screen and (min-width:768px) {
+        bottom: 40px;
+        width: 60%;
+        
+    }
 }
 
 .volunteer-form p,
@@ -29,12 +34,17 @@
     display: flex;
     justify-content: space-evenly;
     gap: 1rem;
+    flex-direction: column;
+    @media screen and (min-width:768px) {
+        flex-direction: row;
+        
+    }
 }
 
-.name div,
+/* .name div,
 .adress div {
     width: 50%;
-}
+} */
 
 select,
 input[type="text"],
@@ -57,6 +67,7 @@ span {
 label {
     font-weight: 600;
     margin-bottom: 0.25rem;
+    width: 60%;
 }
 
 input[type="submit"] {
@@ -76,7 +87,17 @@ input[type="submit"]:hover {
 }
 
 .header-volunteer {
-    height: 1120px;
+    height: 1320px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    @media screen and (min-width:768px) {
+      height: 1120px;
+      
+    }
 }
 .header-volunteer .presentation {
     width: 80%;

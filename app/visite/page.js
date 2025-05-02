@@ -1,8 +1,8 @@
 "use client"
 import '../styles/globals.css';
 import Searchbar from '../components/search-bar';
-import { useSearchParams } from 'next/navigation';
 import Users from '../components/users';
+import { useSearchParams } from 'next/navigation';
 import { users } from '../../public/data/users.js'
 import { useState, useRef, use } from 'react';
 import { Blocks } from 'lucide-react';
@@ -42,7 +42,7 @@ export default function Visite() {
 
     return (
         <main>
-            <div className='header'>
+            <header className='visite-header'>
 
                 <Searchbar
                     moment={filters.moment}
@@ -53,10 +53,10 @@ export default function Visite() {
                         setPage(1);
                     }}
                 />
-            </div>
+            </header>
             <Users ref={usersRef} users={pagedUsers} />
             <div className="pagination">
-                <button onClick={() => handlePageChange(page - 1)} className={page === 1 ? "hide" : ""}>
+                <button onClick={() => handlePageChange(page - 1)} className={page === 1 ? "hide previous-next" : "previous-next"}>
                     {"<< Précédent"}
                 </button>
 
@@ -72,7 +72,7 @@ export default function Visite() {
                     );
                 })}
 
-                <button onClick={() => handlePageChange(page + 1)} className={page === maxPage ? "hide" : ""}>
+                <button onClick={() => handlePageChange(page + 1)} className={page === maxPage ? "hide previous-next" : "previous-next"}>
                     {"Suivant >>"}
                 </button>
 

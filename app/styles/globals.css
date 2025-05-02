@@ -33,18 +33,18 @@
   --container-width: 90%;
 }
 
-.title {
+.navbar-title {
   font-weight: bold;
   font-size: 1.5rem;
   padding-bottom: 6px;
 }
 
-.title span {
+.navbar-title span {
   color: var(--secondary-color);
 
 }
 
-.flex {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -58,10 +58,11 @@ li {
   padding: 0 10px;
 }
 
-ul {
+.nav-links {
   display: flex;
   align-items: center;
   margin: 0;
+
 }
 
 .don {
@@ -87,7 +88,7 @@ ul {
   color: var(--light-color);
 }
 
-.flex a {
+.navbar a {
   color: var(--heading-color);
   text-decoration: none;
   font-weight: bold;
@@ -100,7 +101,7 @@ li a:hover {
 }
 
 
-.main,
+
 main {
   width: 100%;
   background-color: var(--light-color);
@@ -112,13 +113,18 @@ main {
   object-fit: cover;
 }
 
-header {
+.header-home {
   position: relative;
-  height: 390px;
+  height: 520px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width:768px) {
+    height: 390px;
+
+  }
 }
 
 .search-bar {
@@ -134,6 +140,7 @@ header {
   align-items: end;
   border-radius: 8px;
 }
+
 .volunteer-form h2 {
   font-family: var(--font-family-heading);
   font-size: 2.5rem;
@@ -142,9 +149,14 @@ header {
 .presentation {
   position: absolute;
   top: 130px;
-  width: 45%;
+  width: 90%;
   text-align: center;
   color: var(--light-color);
+
+  @media screen and (min-width:768px) {
+    width: 45%;
+
+  }
 }
 
 h1 {
@@ -169,6 +181,7 @@ h1 {
   align-items: center;
   text-align: center;
   width: 100%;
+  padding: 0 10px;
 }
 
 .intro p,
@@ -198,12 +211,20 @@ h1 {
 }
 
 .cards {
-  display: flex;
-  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width:380px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 768px) {
+
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .card {
-  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,13 +241,17 @@ h1 {
 
 .links {
   display: flex;
-  margin: 30px 0;
+  margin: 30px;
   align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+
+  @media screen and (min-width:768px) {
+    flex-direction: row;
+
+  }
 }
 
-.links .don {
-  margin: 0 20px
-}
 
 .volunteer {
   background-color: var(--btn-accent-bg);
@@ -239,23 +264,36 @@ h1 {
   color: var(--light-color);
 }
 
-.header {
+.visite-header {
   position: relative;
-  height: 150px;
+  height: 240px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+
+  @media screen and (min-width:768px) {
+    height: 150px;
+
+  }
 }
 
 .users {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 100%;
   grid-gap: 30px;
   padding: 20px;
   justify-content: center;
+
+  @media screen and (min-width:768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width:1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .user-card {
@@ -299,7 +337,12 @@ h3 {
 }
 
 .image-holder {
-  height: 200px;
+  height: 250px;
+
+  @media screen and (min-width:1200px) {
+    height: 200px;
+
+  }
 }
 
 .pagination {
@@ -323,22 +366,35 @@ h3 {
   font-weight: bold;
 }
 
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.previous-next {
+  display: none;
+
+  @media screen and (min-width:768px) {
+    display: block;
+
+  }
+}
+
 .labeled {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+
 }
 
 .testimony {
-text-align: center;
+  text-align: center;
 
 }
 
 li .disabled {
   pointer-events: none;
   color: var(--accent-color);
-}
-
-.hide {
-  opacity: 0;
-  pointer-events: none;
 }

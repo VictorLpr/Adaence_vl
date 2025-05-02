@@ -1,9 +1,8 @@
 'use client'
 
-import { forwardRef } from "react"
 import UserCard from "./user-card"
 
-const Users = forwardRef(({ users }, ref) => {
+const Users = ({ users , ref}) => {
 
     return (
         <section ref={ref} className='users'>
@@ -13,6 +12,6 @@ const Users = forwardRef(({ users }, ref) => {
             ))}
         </section>
     )
-});
+};
 
 export default Users;

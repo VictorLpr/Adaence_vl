@@ -1,60 +1,70 @@
 .search-bar {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  @media screen and (min-width:768px) {
     width: 70%;
-    align-items: center;
-
+  }
 }
-.up-search-bar {
-    gap: 1rem;
-    display: flex;
-    margin-top: 1rem;
-    align-items: flex-end;
-    width: 100%;
-    justify-content: space-between;
-  }
-  .up-search-bar div {
-    width: 30%;
-  }
-  .search-bar label {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-  
-  .up-search-bar select,
-  .up-search-bar input[type="text"] {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    width: 100%;
-  }
-  
-  .up-search-bar input[type="submit"] {
-    background-color: #333;
-    color: #fafafa;
-    border: none;
-    width: 30%;
-    padding: 0.75rem 0;
-    font-weight: 600;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .up-search-bar input[type="submit"]:hover {
-    background-color: #e74c3c;
-  }
-  
-  .results {
-    width: 100%;
-    
-    display: flex;
-    justify-content: space-between;
-  }
 
-  .refresh {
-    color: #e74c3c;
-    text-decoration: underline;
-    cursor: pointer;
+.up-search-bar {
+  gap: 1rem;
+  display: flex;
+  margin-top: 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  @media screen and (min-width:768px) {
+    flex-direction: row;;
+    align-items: flex-end;
+    
   }
+}
+
+
+
+.search-bar label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  margin-right: 3rem;
+}
+
+.up-search-bar select,
+.up-search-bar input[type="text"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.up-search-bar input[type="submit"] {
+  background-color: #333;
+  color: #fafafa;
+  border: none;
+  width: auto;
+  padding: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.up-search-bar input[type="submit"]:hover {
+  background-color: #e74c3c;
+}
+
+.results {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.refresh {
+  color: #e74c3c;
+  text-decoration: underline;
+  cursor: pointer;
+}
