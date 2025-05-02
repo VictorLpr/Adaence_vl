@@ -1,3 +1,4 @@
+import Card from "./card";
 
 
 export default function How() {
@@ -8,34 +9,24 @@ export default function How() {
             <p>Offrir un peu de votre temps, c'est offrir beaucoup. Découvrez comment planifier une visite en
                 toute simplicité.</p>
             <div className="cards">
-                <div className="card">
-                    <img src="./images/loupe.png" alt="" width={32} />
-                    <h2>1. Choisissez une
-                        rencontre</h2>
-                    <p>Parcourez les profils de nos aînés et trouvez la personne
-                        avec qui vous aimeriez partager un moment chaleureux.</p>
-                </div>
-                <div className="card">
-                    <img src="./images/memo.png" alt="" width={32} />
-                    <h2>2. Remplissez le
-                        formulaire</h2>
-                    <p>Indiquez vos disponibilités et vos envies. Cela nous aide à
-                        organiser une rencontre adaptée et en toute confiance.</p>
-                </div>
-                <div className="card">
-                    <img src="./images/waving.png" alt="" width={32} />
-                    <h2>3. Partagez un
-                    moment</h2>
-                    <p>Rendez visite à la personne âgée dans un cadre bienveillant. Une
-discussion, une balade ou simplement l'aider à une tâche
-Chaque moment compte.</p>
-                </div>
-                <div className="card">
-                    <img src="./images/heart.png" alt="" width={32} />
-                    <h2>4. Créez du lien</h2>
-                    <p>Si le courant passe, vous pouvez revenir ! Ensemble, tissons des
-liens durables et combattons l'isolement pas a pas.</p>
-                </div>
+                <Card imgUrl="./images/loupe.png"
+                title="1. Choisissez une rencontre"
+                text="Parcourez les profils de nos aînés et trouvez la personne avec qui vous aimeriez partager un moment chaleureux."
+                />
+                <Card imgUrl="./images/memo.png"
+                title="2. Remplissez le formulaire"
+                text="Indiquez vos disponibilités et vos envies. Cela nous aide à organiser une rencontre adaptée et en toute confiance."
+                />
+                 <Card imgUrl="./images/waving.png"
+                title="3. Partagez un moment"
+                text="Rendez visite à la personne âgée dans un cadre bienveillant. Une discussion, une balade ou simplement l'aider à une tâche ! Chaque moment compte." 
+                />
+                <Card 
+                imgUrl="./images/heart.png"
+                title="4. Créez du lien"
+                text="Si le courant passe, vous pouvez revenir ! Ensemble, tissons des liens durables et combattons l'isolement pas à pas."
+                />
+                
             </div>
         </section>
     )
