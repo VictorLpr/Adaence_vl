@@ -1,7 +1,7 @@
 'use client'
 import '../styles/search-bar.css'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { Suspense, useState } from 'react';
+import {  useState } from 'react';
 
 
 export default function Searchbar({ num, onChange }) {
@@ -46,7 +46,6 @@ export default function Searchbar({ num, onChange }) {
     }
 
     return (
-        <Suspense>
 
             <form className="search-bar" onSubmit={handleSubmit}>
                 <div className='up-search-bar'>
@@ -80,6 +79,5 @@ export default function Searchbar({ num, onChange }) {
                     <p className='refresh' onClick={handleReset}>Réinitialiser les filtres</p>
                 </div>
             </form>
-        </Suspense>
     )
 }

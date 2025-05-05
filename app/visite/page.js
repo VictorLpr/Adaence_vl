@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import Searchbar from '../components/search-bar';
 import Users from '../components/users';
 import { users } from '../../public/data/users.js'
-import { useState, useRef } from 'react';
+import { useState, useRef, Suspense } from 'react';
 
 export default function Visite() {
     const usersPerPage = 8;
@@ -13,7 +13,7 @@ export default function Visite() {
         moment: '',
         localisation: ''
     });
-    
+
     const [page, setPage] = useState(1)
 
     const filteredUsers = users.filter(user => {
@@ -31,22 +31,24 @@ export default function Visite() {
 
     const handlePageChange = (newPage) => {
         setPage(newPage);
-        usersRef.current?.scrollIntoView({ 
-            behavior: 'smooth', 
+        usersRef.current?.scrollIntoView({
+            behavior: 'smooth',
         });
     };
 
     return (
         <main>
             <header className='visite-header'>
+                <Suspense>
 
-                <Searchbar
-                    num={filteredUsers.length}
-                    onChange={(newFilters) => {
-                        setFilters(newFilters);
-                        setPage(1);
-                    }}
-                />
+                    <Searchbar
+                        num={filteredUsers.length}
+                        onChange={(newFilters) => {
+                            setFilters(newFilters);
+                            setPage(1);
+                        }}
+                    />
+                </Suspense>
             </header>
             <Users ref={usersRef} users={pagedUsers} />
             <div className="pagination">
