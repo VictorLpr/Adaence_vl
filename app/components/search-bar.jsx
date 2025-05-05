@@ -1,7 +1,7 @@
 'use client'
 import '../styles/search-bar.css'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import {  useState } from 'react';
+import { useState } from 'react';
 
 
 export default function Searchbar({ num, onChange }) {

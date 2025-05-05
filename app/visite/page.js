@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import Searchbar from '../components/search-bar';
 import Users from '../components/users';
 import { users } from '../../public/data/users.js'
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Suspense } from 'react';
 
 export default function Visite() {
     const usersPerPage = 8;
@@ -45,13 +45,16 @@ export default function Visite() {
     return (
         <main>
             <header className='visite-header'>
-                <Searchbar
-                    num={filteredUsers.length}
-                    onChange={(newFilters) => {
-                        setFilters(newFilters);
-                        setPage(1);
-                    }}
-                />
+                <Suspense>
+
+                    <Searchbar
+                        num={filteredUsers.length}
+                        onChange={(newFilters) => {
+                            setFilters(newFilters);
+                            setPage(1);
+                        }}
+                    />
+                </Suspense>
             </header>
             <Users ref={usersRef} users={pagedUsers} />
             <div className="pagination">
