@@ -2,19 +2,16 @@
 import '../styles/globals.css';
 import Searchbar from '../components/search-bar';
 import Users from '../components/users';
-import { useSearchParams } from 'next/navigation';
 import { users } from '../../public/data/users.js'
-import { useState, useRef, use } from 'react';
-import { Blocks } from 'lucide-react';
+import { useState, useRef } from 'react';
 
 export default function Visite() {
-    const searchParams = useSearchParams();
     const usersPerPage = 8;
     const usersRef = useRef()
 
     const initialFilters = {
-        moment: searchParams.get('moment') || '',
-        localisation: searchParams.get('localisation') || '',
+        moment: '',
+        localisation: '',
     }
     const [filters, setFilters] = useState(initialFilters);
     const [page, setPage] = useState(1)
@@ -45,8 +42,6 @@ export default function Visite() {
             <header className='visite-header'>
 
                 <Searchbar
-                    moment={filters.moment}
-                    localisation={filters.localisation}
                     num={filteredUsers.length}
                     onChange={(newFilters) => {
                         setFilters(newFilters);

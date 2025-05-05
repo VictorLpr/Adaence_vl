@@ -1,14 +1,20 @@
 'use client'
 import '../styles/search-bar.css'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter,useSearchParams } from 'next/navigation'
 import { useState } from 'react';
 
-export default function Searchbar({ moment, localisation, num, onChange }) {
+export default function Searchbar({ num, onChange }) {
     const pathname = usePathname()
     const router = useRouter()
+    const searchParams = useSearchParams();
+    
+    const initialFilters = {
+        moment: searchParams.get('moment') || '',
+        localisation: searchParams.get('localisation') || '',
+    }
     const options = ["Un repas", "Un café/thé", "Une promenade", "Une sortie culturelle", "Autre activité"];
-    const [formMoment, setFormMoment] = useState(moment)
-    const [formLoc, setFormLoc] = useState(localisation)
+    const [formMoment, setFormMoment] = useState(initialFilters.moment)
+    const [formLoc, setFormLoc] = useState(initialFilters.localisation)
 
     const handleSubmit = (e) => {
         e.preventDefault()
