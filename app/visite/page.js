@@ -9,11 +9,11 @@ export default function Visite() {
     const usersPerPage = 8;
     const usersRef = useRef()
 
-    const initialFilters = {
+    const [filters, setFilters] = useState({
         moment: '',
-        localisation: '',
-    }
-    const [filters, setFilters] = useState(initialFilters);
+        localisation: ''
+    });
+    
     const [page, setPage] = useState(1)
 
     const filteredUsers = users.filter(user => {
@@ -35,7 +35,6 @@ export default function Visite() {
             behavior: 'smooth', 
         });
     };
-
 
     return (
         <main>

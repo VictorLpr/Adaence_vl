@@ -1,4 +1,3 @@
-'use client'
 import Comment from '../components/comment';
 import VolunteerForm from '../components/volunteer-form';
 import WhyVolunteer from '../components/why-volunteer';

@@ -1,13 +1,14 @@
 'use client'
 import '../styles/search-bar.css'
-import { usePathname, useRouter,useSearchParams } from 'next/navigation'
-import { useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { Suspense, useState } from 'react';
+
 
 export default function Searchbar({ num, onChange }) {
     const pathname = usePathname()
     const router = useRouter()
     const searchParams = useSearchParams();
-    
+
     const initialFilters = {
         moment: searchParams.get('moment') || '',
         localisation: searchParams.get('localisation') || '',
@@ -45,37 +46,40 @@ export default function Searchbar({ num, onChange }) {
     }
 
     return (
-        <form className="search-bar" onSubmit={handleSubmit}>
-            <div className='up-search-bar'>
-                <div className='labeled'>
-                    <label htmlFor="moment">Moment à partager</label>
-                    <select name="moment"
-                        id="moment"
-                        value={formMoment}
-                        onChange={e => setFormMoment(e.target.value)}
-                    >
-                        <option value="">Tous les moments possibles</option>
-                        {options.map((option, index) => (
-                            <option key={index} value={option}>{option}</option>
-                        ))}
-                    </select>
+        <Suspense>
+
+            <form className="search-bar" onSubmit={handleSubmit}>
+                <div className='up-search-bar'>
+                    <div className='labeled'>
+                        <label htmlFor="moment">Moment à partager</label>
+                        <select name="moment"
+                            id="moment"
+                            value={formMoment}
+                            onChange={e => setFormMoment(e.target.value)}
+                        >
+                            <option value="">Tous les moments possibles</option>
+                            {options.map((option, index) => (
+                                <option key={index} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className='labeled'>
+                        <label htmlFor="localisation">Localisation</label>
+                        <input
+                            type="text"
+                            name="localisation"
+                            placeholder="Votre ville"
+                            value={formLoc}
+                            onChange={e => setFormLoc(e.target.value)}
+                        />
+                    </div>
+                    <input type="submit" value="Rechercher 🔎" />
                 </div>
-                <div className='labeled'>
-                    <label htmlFor="localisation">Localisation</label>
-                    <input
-                        type="text"
-                        name="localisation"
-                        placeholder="Votre ville"
-                        value={formLoc}
-                        onChange={e => setFormLoc(e.target.value)}
-                    />
+                <div className='results' style={{ display: pathname === '/visite' ? 'flex' : 'none' }}>
+                    <p>{num} moments trouvés</p>
+                    <p className='refresh' onClick={handleReset}>Réinitialiser les filtres</p>
                 </div>
-                <input type="submit" value="Rechercher 🔎" />
-            </div>
-            <div className='results' style={{ display: pathname === '/visite' ? 'flex' : 'none' }}>
-                <p>{num} moments trouvés</p>
-                <p className='refresh' onClick={handleReset}>Réinitialiser les filtres</p>
-            </div>
-        </form>
+            </form>
+        </Suspense>
     )
 }
