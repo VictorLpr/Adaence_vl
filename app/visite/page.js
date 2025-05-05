@@ -3,31 +3,37 @@ import '../styles/globals.css';
 import Searchbar from '../components/search-bar';
 import Users from '../components/users';
 import { users } from '../../public/data/users.js'
-import { useState, useRef, Suspense } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Visite() {
     const usersPerPage = 8;
-    const usersRef = useRef()
+    const usersRef = useRef();
 
     const [filters, setFilters] = useState({
         moment: '',
         localisation: ''
     });
 
-    const [page, setPage] = useState(1)
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const searchParams = new URLSearchParams(window.location.search);
+            const moment = searchParams.get("moment") || '';
+            const localisation = searchParams.get("localisation") || '';
+            setFilters({ moment, localisation });
+        }
+    }, []);
+
+    const [page, setPage] = useState(1);
 
     const filteredUsers = users.filter(user => {
         const matchMoment = !filters.moment || user.type === filters.moment;
-        const matchLocalisation = !filters.localisation || user.city.toLowerCase().includes(filters.localisation);
+        const matchLocalisation = !filters.localisation || user.city.toLowerCase().includes(filters.localisation.toLowerCase());
         return matchMoment && matchLocalisation;
     });
 
-    const maxPage = Math.ceil(filteredUsers.length / usersPerPage)
-    const pagedUsers = filteredUsers.slice((page - 1) * usersPerPage, page * usersPerPage)
-    const pages = [];
-    for (let i = 1; i <= maxPage; i++) {
-        pages.push(i);
-    }
+    const maxPage = Math.ceil(filteredUsers.length / usersPerPage);
+    const pagedUsers = filteredUsers.slice((page - 1) * usersPerPage, page * usersPerPage);
+    const pages = Array.from({ length: maxPage }, (_, i) => i + 1);
 
     const handlePageChange = (newPage) => {
         setPage(newPage);
@@ -39,16 +45,13 @@ export default function Visite() {
     return (
         <main>
             <header className='visite-header'>
-                <Suspense>
-
-                    <Searchbar
-                        num={filteredUsers.length}
-                        onChange={(newFilters) => {
-                            setFilters(newFilters);
-                            setPage(1);
-                        }}
-                    />
-                </Suspense>
+                <Searchbar
+                    num={filteredUsers.length}
+                    onChange={(newFilters) => {
+                        setFilters(newFilters);
+                        setPage(1);
+                    }}
+                />
             </header>
             <Users ref={usersRef} users={pagedUsers} />
             <div className="pagination">
@@ -56,22 +59,19 @@ export default function Visite() {
                     {"<< Précédent"}
                 </button>
 
-                {pages.map((p) => {
-                    return (
-                        <button
-                            key={p}
-                            className={p === page ? 'active' : ''}
-                            onClick={() => handlePageChange(p)}
-                        >
-                            {p}
-                        </button>
-                    );
-                })}
+                {pages.map((p) => (
+                    <button
+                        key={p}
+                        className={p === page ? 'active' : ''}
+                        onClick={() => handlePageChange(p)}
+                    >
+                        {p}
+                    </button>
+                ))}
 
                 <button onClick={() => handlePageChange(page + 1)} className={page === maxPage ? "hide previous-next" : "previous-next"}>
                     {"Suivant >>"}
                 </button>
-
             </div>
         </main>
     );
