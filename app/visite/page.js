@@ -2,7 +2,6 @@
 import '../styles/globals.css';
 import Searchbar from '../components/search-bar';
 import Users from '../components/users';
-import { users } from '../../public/data/users.js'
 import { useState, useRef, useEffect, Suspense } from 'react';
 
 export default function Visite() {
@@ -14,25 +13,45 @@ export default function Visite() {
         localisation: ''
     });
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const searchParams = new URLSearchParams(window.location.search);
-            const moment = searchParams.get("moment") || '';
-            const localisation = searchParams.get("localisation") || '';
-            setFilters({ moment, localisation });
-        }
-    }, []);
-
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
 
-    const filteredUsers = users.filter(user => {
-        const matchMoment = !filters.moment || user.type === filters.moment;
-        const matchLocalisation = !filters.localisation || user.city.toLowerCase().includes(filters.localisation.toLowerCase());
-        return matchMoment && matchLocalisation;
-    });
+    const fetchUsers = (moment, localisation) => {
+        setLoading(true);
+        const queryParams = new URLSearchParams();
 
-    const maxPage = Math.ceil(filteredUsers.length / usersPerPage);
-    const pagedUsers = filteredUsers.slice((page - 1) * usersPerPage, page * usersPerPage);
+        if (moment) queryParams.append('moment', moment);
+        if (localisation) queryParams.append('localisation', localisation);
+
+        fetch(`http://localhost:4000/user?${queryParams.toString()}`)
+            .then(res => res.json())
+            .then(data => {
+                setUsers(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error('Erreur lors du fetch :', err);
+                setLoading(false);
+            });
+    };
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+        const moment = searchParams.get("moment") || '';
+        const localisation = searchParams.get("localisation") || '';
+        setFilters({ moment, localisation });
+        fetchUsers(moment, localisation);
+    }, []);
+
+    const handleFilterChange = (newFilters) => {
+        setFilters(newFilters);
+        setPage(1);
+        fetchUsers(newFilters.moment, newFilters.localisation);
+    };
+
+    const maxPage = Math.ceil(users.length / usersPerPage);
+    const pagedUsers = users.slice((page - 1) * usersPerPage, page * usersPerPage);
     const pages = Array.from({ length: maxPage }, (_, i) => i + 1);
 
     const handlePageChange = (newPage) => {
@@ -42,17 +61,15 @@ export default function Visite() {
         });
     };
 
+    if (loading) return <div>Chargement...</div>;
+
     return (
         <main>
             <header className='visite-header'>
                 <Suspense>
-
                     <Searchbar
-                        num={filteredUsers.length}
-                        onChange={(newFilters) => {
-                            setFilters(newFilters);
-                            setPage(1);
-                        }}
+                        num={users.length}
+                        onChange={handleFilterChange}
                     />
                 </Suspense>
             </header>
