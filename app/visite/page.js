@@ -24,7 +24,7 @@ export default function Visite() {
         if (moment) queryParams.append('moment', moment);
         if (localisation) queryParams.append('localisation', localisation);
 
-        fetch(`http://localhost:4000/elders?${queryParams.toString()}`)
+        fetch(`https://myapp-wlng.onrender.com/elders?${queryParams.toString()}`)
             .then(res => res.json())
             .then(data => {
                 setUsers(data);
