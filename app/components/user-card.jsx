@@ -8,7 +8,7 @@ export default function UserCard (props) {
         <div className="user-card">
             <div className="image-holder">
 
-            <img src={props.imageUrl}></img>
+            <img src={props.url_image}></img>
             </div>
             <p>{props.type}</p>
             <h3>{props.firstname}</h3>
